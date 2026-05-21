@@ -20,7 +20,7 @@ export const Footer = () => {
         <div>
           <h4 className="text-sm uppercase tracking-widest text-foreground">Follow</h4>
           <a
-            href="https://www.instagram.com/sreenaya_stylescapes?igsh=dmw2ZTRyaWNmNGZm"
+            href="https://www.instagram.com/sreenaya_stylescapes"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors"
