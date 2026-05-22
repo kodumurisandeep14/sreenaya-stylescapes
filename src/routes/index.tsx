@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
-import { storefrontApiRequest, STOREFRONT_QUERY, type ShopifyProduct } from "@/lib/shopify";
+import { getProducts } from "@/lib/catalog";
 import { sampleProduct } from "@/lib/sampleProduct";
 import heroImage from "@/assets/hero.jpg";
 import { Loader2, MapPin, Sparkles, Truck } from "lucide-react";
@@ -24,8 +24,8 @@ function Index() {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await storefrontApiRequest(STOREFRONT_QUERY, { first: 24, query: null });
-        return (res?.data?.products?.edges as ShopifyProduct[]) ?? [];
+        const products = await getProducts(24);
+        return products;
       } catch {
         return [];
       }
@@ -89,7 +89,7 @@ function Index() {
           <div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
         ) : (
           <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {products.map((p) => <ProductCard key={p.node.id} product={p} />)}
+            {products.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>
         )}
       </section>
