@@ -44,3 +44,15 @@ export async function getCategories(): Promise<Category[]> {
 
   return data as Category[];
 }
+
+const { data, error } = await supabase
+  .from('products')
+  .select(`
+    *,
+    categories(*)
+  `)
+
+console.log('data:', data)
+console.log('error:', error)
+
+if (error) throw error

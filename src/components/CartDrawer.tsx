@@ -55,12 +55,14 @@ export const CartDrawer = () => {
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-4 p-2 border-b border-border/50">
                       <div className="w-20 h-20 bg-secondary rounded-md overflow-hidden flex-shrink-0">
-                        {item.product.node.images?.edges?.[0]?.node && (
-                          <img src={item.product.node.images.edges[0].node.url} alt={item.product.node.title} className="w-full h-full object-cover" />
+                        {item.product.image_url ? (
+                          <img src={item.product.image_url} alt={item.product.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="h-full w-full flex items-center justify-center text-muted-foreground text-xs">No image</div>
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-medium truncate">{item.product.node.title}</h4>
+                        <h4 className="font-medium truncate">{item.product.name}</h4>
                         <p className="text-xs text-muted-foreground">{item.selectedOptions.map((o) => o.value).join(" • ")}</p>
                         <p className="font-semibold mt-1">{item.price.currencyCode} {parseFloat(item.price.amount).toFixed(2)}</p>
                       </div>
