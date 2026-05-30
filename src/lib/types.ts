@@ -14,6 +14,7 @@ export interface Product {
   description: string | null;
   price: number;
   image_url: string | null;
+  image_urls?: string[];
   in_stock: boolean;
   created_at: string;
   categories?: Category; // For joins
