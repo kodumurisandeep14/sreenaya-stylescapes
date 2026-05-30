@@ -66,7 +66,7 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => set({ items: [], cartId: null, checkoutUrl: null }),
       
-      getCheckoutUrl: () => "/checkout", // Route to our local checkout page instead of Shopify
+      getCheckoutUrl: () => "/checkout",
 
       syncCart: async () => {
         // No-op for local cart. Will be implemented when syncing with Supabase carts table.

@@ -1,0 +1,140 @@
+<mxfile host="drawio" modified="2026-05-24T00:00:00.000Z" agent="Mozilla/5.0" version="14.0.1" type="device">
+  <diagram id="dataflow-cart" name="Cart Dataflow">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Shopping Cart - Data Flow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;spacing=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1000" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Step 1: Product Page -->
+        <mxCell id="step1" value="1. User Clicks 'Add to Bag'&#10;ProductCard.tsx or product.$handle.tsx" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 2: Create CartItem -->
+        <mxCell id="step2" value="2. Build CartItem Object&#10;{ product, variantId,&#10;price, quantity,&#10;selectedOptions }" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="270" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 3: Call addItem -->
+        <mxCell id="step3" value="3. Call cartStore&#10;addItem(cartItem)&#10;(useCartStore)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="490" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 4: Update State -->
+        <mxCell id="step4" value="4. Zustand Updates State&#10;- Check if item exists&#10;- Add new or update qty&#10;- Trigger re-render" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="710" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Step 5: Persist Storage -->
+        <mxCell id="step5" value="5. Persist to localStorage&#10;(Zustand middleware)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="930" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Flow arrows between steps -->
+        <mxCell id="flow1" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" edge="1" parent="1" source="step4" target="step5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Viewing Cart -->
+        <mxCell id="view-title" value="Viewing Cart in CartDrawer" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="view1" value="User Opens CartDrawer&#10;Sheet component" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="280" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="view2" value="Reads cartStore.items&#10;via useCartStore()" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="view3" value="Map items array&#10;Render ProductCard&#10;with image_url &amp; name" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="430" y="280" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="view4" value="Display Price &amp;&#10;Quantity Controls" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="280" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="viewflow1" edge="1" parent="1" source="view1" target="view2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="viewflow2" edge="1" parent="1" source="view2" target="view3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="viewflow3" edge="1" parent="1" source="view3" target="view4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Modifying Quantity -->
+        <mxCell id="mod-title" value="Modifying Quantity" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod1" value="Click +/- buttons&#10;or call removeItem" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="460" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod2" value="Call cartStore&#10;updateQuantity(id, qty)&#10;or removeItem(id)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="460" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod3" value="Zustand updates&#10;items array in state&#10;and localStorage" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="430" y="460" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod4" value="CartDrawer re-renders&#10;with updated data" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="460" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="modflow1" edge="1" parent="1" source="mod1" target="mod2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modflow2" edge="1" parent="1" source="mod2" target="mod3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="modflow3" edge="1" parent="1" source="mod3" target="mod4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Checkout Flow -->
+        <mxCell id="checkout-title" value="Checkout Flow" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="600" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="checkout1" value="User clicks Checkout&#10;Button in CartDrawer" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="checkout2" value="Call getCheckoutUrl()&#10;Returns: '/checkout'" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="640" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="checkout3" value="Navigate to checkout&#10;route with cart items&#10;from state" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="430" y="640" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="checkoutflow1" edge="1" parent="1" source="checkout1" target="checkout2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="checkoutflow2" edge="1" parent="1" source="checkout2" target="checkout3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,79 @@
+<mxfile host="drawio" modified="2026-05-24T00:00:00.000Z" agent="Mozilla/5.0" version="14.0.1" type="device">
+  <diagram id="dataflow-products" name="Product Catalog Flow">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Product Catalog - Data Flow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;spacing=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1000" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="list-title" value="Homepage - Fetch Products" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="list1" value="Route: index.tsx" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="list2" value="Call getProducts()" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="120" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="list3" value="Query Supabase" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="430" y="120" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="list4" value="Return Product[]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="list5" value="Render ProductCard" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="810" y="120" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="listflow1" edge="1" parent="1" source="list1" target="list2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="listflow2" edge="1" parent="1" source="list2" target="list3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="listflow3" edge="1" parent="1" source="list3" target="list4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="listflow4" edge="1" parent="1" source="list4" target="list5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="detail-title" value="Product Detail Page - Single Product" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="260" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="detail1" value="Route: product.$handle.tsx" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detail2" value="Extract handle param" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detail3" value="Call getProductBySlug()" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="430" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detail4" value="Query with slug" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detail5" value="Render full page" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="810" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detailflow1" edge="1" parent="1" source="detail1" target="detail2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="detailflow2" edge="1" parent="1" source="detail2" target="detail3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="detailflow3" edge="1" parent="1" source="detail3" target="detail4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="detailflow4" edge="1" parent="1" source="detail4" target="detail5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="data-title" value="Data Structure - Product Type" style="text;html=1;align=left;verticalAlign=top;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="440" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="data-box" value="Product {&#10;  id: string&#10;  name: string&#10;  slug: string&#10;  price: number&#10;  image_url: string&#10;  description: string&#10;  category_id: string&#10;  in_stock: boolean&#10;  created_at: string&#10;}" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1e6f0;strokeColor=#6c8ebf;align=left;" vertex="1" parent="1">
+          <mxGeometry x="50" y="480" width="200" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
